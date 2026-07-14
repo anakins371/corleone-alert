@@ -1,14 +1,17 @@
 {
   "CRLNE4": {
     "buy": 50,
-    "sell": 80
+    "sell": 80,
+    "fair_price": 60
+  },
+  "MACN3": {
+    "buy": 40,
+    "sell": 70,
+    "fair_price": 45
   },
   "STDC3": {
     "buy": 40,
-    "sell": 60
-  },
-  "MACN3": {
-    "buy": 55,
-    "sell": 70
+    "sell": 60,
+    "fair_price": 60
   }
 }
