@@ -46,7 +46,12 @@ def main():
         preco = acao["price"]
 
         buy = CONFIG[ticker]["buy"]
-        sell = CONFIG[ticker]["sell"]
+sell = CONFIG[ticker]["sell"]
+fair_price = CONFIG[ticker]["fair_price"]
+
+desconto = ((fair_price - preco) / fair_price) * 100
+
+
 
         # ===== COMPRA =====
 
@@ -70,6 +75,35 @@ def main():
             if ESTADO[ticker]["buy_sent"]:
                 ESTADO[ticker]["buy_sent"] = False
                 alterou_estado = True
+
+# ===== GRANDE OPORTUNIDADE =====
+
+if desconto >= 30:
+
+    mensagem = (
+        "🔥 GRANDE OPORTUNIDADE\n\n"
+        f"Ação: {ticker}\n"
+        f"Preço Atual: R$ {preco:.2f}\n"
+        f"Preço Justo: R$ {fair_price:.2f}\n"
+        f"Desconto: {desconto:.1f}%"
+    )
+
+    enviar_mensagem(mensagem)
+
+# ===== DESCONTO INSANO =====
+
+if desconto >= 50:
+
+    mensagem = (
+        "🚨 DESCONTO INSANO!\n\n"
+        f"Ação: {ticker}\n"
+        f"Preço Atual: R$ {preco:.2f}\n"
+        f"Preço Justo: R$ {fair_price:.2f}\n"
+        f"Desconto: {desconto:.1f}%\n\n"
+        "Possível barganha extrema."
+    )
+
+    enviar_mensagem(mensagem)
 
         # ===== VENDA =====
 
