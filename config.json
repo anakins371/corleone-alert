@@ -1,11 +1,14 @@
 {
   "CRLNE4": {
+    "buy": 50,
     "sell": 80
   },
   "STDC3": {
+    "buy": 40,
     "sell": 60
   },
   "MACN3": {
+    "buy": 55,
     "sell": 70
   }
 }
