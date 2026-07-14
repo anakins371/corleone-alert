@@ -38,6 +38,7 @@ def main():
     alterou_estado = False
 
     for acao in acoes:
+
         ticker = acao["sym"]
 
         if ticker not in CONFIG:
@@ -46,14 +47,14 @@ def main():
         preco = acao["price"]
 
         buy = CONFIG[ticker]["buy"]
-sell = CONFIG[ticker]["sell"]
-fair_price = CONFIG[ticker]["fair_price"]
+        sell = CONFIG[ticker]["sell"]
+        fair_price = CONFIG[ticker]["fair_price"]
 
-desconto = ((fair_price - preco) / fair_price) * 100
+        desconto = ((fair_price - preco) / fair_price) * 100
 
-
-
-        # ===== COMPRA =====
+        # ====================
+        # COMPRA
+        # ====================
 
         if preco <= buy:
 
@@ -72,40 +73,69 @@ desconto = ((fair_price - preco) / fair_price) * 100
                 alterou_estado = True
 
         else:
+
             if ESTADO[ticker]["buy_sent"]:
                 ESTADO[ticker]["buy_sent"] = False
                 alterou_estado = True
 
-# ===== GRANDE OPORTUNIDADE =====
+        # ====================
+        # GRANDE OPORTUNIDADE
+        # ====================
 
-if desconto >= 30:
+        if desconto >= 30:
 
-    mensagem = (
-        "🔥 GRANDE OPORTUNIDADE\n\n"
-        f"Ação: {ticker}\n"
-        f"Preço Atual: R$ {preco:.2f}\n"
-        f"Preço Justo: R$ {fair_price:.2f}\n"
-        f"Desconto: {desconto:.1f}%"
-    )
+            if not ESTADO[ticker]["great_sent"]:
 
-    enviar_mensagem(mensagem)
+                mensagem = (
+                    "🔥 GRANDE OPORTUNIDADE\n\n"
+                    f"Ação: {ticker}\n"
+                    f"Preço Atual: R$ {preco:.2f}\n"
+                    f"Preço Justo: R$ {fair_price:.2f}\n"
+                    f"Desconto: {desconto:.1f}%"
+                )
 
-# ===== DESCONTO INSANO =====
+                enviar_mensagem(mensagem)
 
-if desconto >= 50:
+                ESTADO[ticker]["great_sent"] = True
+                alterou_estado = True
 
-    mensagem = (
-        "🚨 DESCONTO INSANO!\n\n"
-        f"Ação: {ticker}\n"
-        f"Preço Atual: R$ {preco:.2f}\n"
-        f"Preço Justo: R$ {fair_price:.2f}\n"
-        f"Desconto: {desconto:.1f}%\n\n"
-        "Possível barganha extrema."
-    )
+        else:
 
-    enviar_mensagem(mensagem)
+            if ESTADO[ticker]["great_sent"]:
+                ESTADO[ticker]["great_sent"] = False
+                alterou_estado = True
 
-        # ===== VENDA =====
+        # ====================
+        # DESCONTO INSANO
+        # ====================
+
+        if desconto >= 50:
+
+            if not ESTADO[ticker]["insane_sent"]:
+
+                mensagem = (
+                    "🚨 DESCONTO INSANO!\n\n"
+                    f"Ação: {ticker}\n"
+                    f"Preço Atual: R$ {preco:.2f}\n"
+                    f"Preço Justo: R$ {fair_price:.2f}\n"
+                    f"Desconto: {desconto:.1f}%\n\n"
+                    "Possível barganha extrema."
+                )
+
+                enviar_mensagem(mensagem)
+
+                ESTADO[ticker]["insane_sent"] = True
+                alterou_estado = True
+
+        else:
+
+            if ESTADO[ticker]["insane_sent"]:
+                ESTADO[ticker]["insane_sent"] = False
+                alterou_estado = True
+
+        # ====================
+        # VENDA
+        # ====================
 
         if preco >= sell:
 
@@ -125,6 +155,7 @@ if desconto >= 50:
                 alterou_estado = True
 
         else:
+
             if ESTADO[ticker]["sell_sent"]:
                 ESTADO[ticker]["sell_sent"] = False
                 alterou_estado = True
