@@ -2,7 +2,7 @@ import json
 import os
 import requests
 
-API_URL = "https://corleonemarket.vercel.app/api/stocks"
+API_URL = "https://corleonemarket.com/api/stocks"
 
 TOKEN = os.environ["TELEGRAM_TOKEN"]
 CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
