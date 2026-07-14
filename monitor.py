@@ -55,9 +55,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-{
-  "STDC3": {
-    "quantidade": 1200000,
-    "preco_medio": 43.09
-  }
-}
