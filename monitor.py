@@ -61,12 +61,15 @@ def main():
             if not ESTADO[ticker]["buy_sent"]:
 
                 mensagem = (
-                    "🟢 OPORTUNIDADE DE COMPRA\n\n"
-                    f"Ação: {ticker}\n"
-                    f"Preço Atual: R$ {preco:.2f}\n"
-                    f"Preço Alvo: R$ {buy:.2f}"
+    "━━━━━━━━━━━━━━━━━━\n\n"
+    "🟢 OPORTUNIDADE DE COMPRA\n\n"
+    f"📌 {ticker}\n\n"
+    f"💵 Preço Atual: R$ {preco:.2f}\n"
+    f"🎯 Preço Alvo: R$ {buy:.2f}\n\n"
+    "⟡ Ativo negociado abaixo da zona de entrada.\n\n"
+    "━━━━━━━━━━━━━━━━━━"
                 )
-
+                
                 enviar_mensagem(mensagem)
 
                 ESTADO[ticker]["buy_sent"] = True
@@ -87,11 +90,14 @@ def main():
             if not ESTADO[ticker]["great_sent"]:
 
                 mensagem = (
-                    "🔥 GRANDE OPORTUNIDADE\n\n"
-                    f"Ação: {ticker}\n"
-                    f"Preço Atual: R$ {preco:.2f}\n"
-                    f"Preço Justo: R$ {fair_price:.2f}\n"
-                    f"Desconto: {desconto:.1f}%"
+    "━━━━━━━━━━━━━━━━━━\n\n"
+    "🔥 GRANDE OPORTUNIDADE\n\n"
+    f"📌 {ticker}\n\n"
+    f"💵 Preço Atual: R$ {preco:.2f}\n"
+    f"🎯 Preço Justo: R$ {fair_price:.2f}\n"
+    f"📉 Desconto: {desconto:.1f}%\n\n"
+    "⟡ Ativo sendo negociado muito abaixo do valor estimado.\n\n"
+    "━━━━━━━━━━━━━━━━━━"
                 )
 
                 enviar_mensagem(mensagem)
@@ -114,12 +120,15 @@ def main():
             if not ESTADO[ticker]["insane_sent"]:
 
                 mensagem = (
-                    "🚨 DESCONTO INSANO!\n\n"
-                    f"Ação: {ticker}\n"
-                    f"Preço Atual: R$ {preco:.2f}\n"
-                    f"Preço Justo: R$ {fair_price:.2f}\n"
-                    f"Desconto: {desconto:.1f}%\n\n"
-                    "Possível barganha extrema."
+    "━━━━━━━━━━━━━━━━━━\n\n"
+    "🚨 DESCONTO INSANO\n\n"
+    f"📌 {ticker}\n\n"
+    f"💵 Preço Atual: R$ {preco:.2f}\n"
+    f"🎯 Preço Justo: R$ {fair_price:.2f}\n"
+    f"📉 Desconto: {desconto:.1f}%\n\n"
+    "⟡ Possível barganha extrema detectada.\n"
+    "⟡ Condição rara de mercado.\n\n"
+    "━━━━━━━━━━━━━━━━━━"
                 )
 
                 enviar_mensagem(mensagem)
@@ -142,11 +151,13 @@ def main():
             if not ESTADO[ticker]["sell_sent"]:
 
                 mensagem = (
-                    "🔔 CORLEONE ALERT\n\n"
-                    f"Ação: {ticker}\n"
-                    f"Preço Atual: R$ {preco:.2f}\n"
-                    f"Preço Alvo: R$ {sell:.2f}\n\n"
-                    "Hora de avaliar uma venda."
+    "━━━━━━━━━━━━━━━━━━\n\n"
+    "🔔 CORLEONE ALERT\n\n"
+    f"📌 {ticker}\n\n"
+    f"💵 Preço Atual: R$ {preco:.2f}\n"
+    f"🎯 Preço Alvo: R$ {sell:.2f}\n\n"
+    "⟡ Hora de avaliar realização de lucro.\n\n"
+    "━━━━━━━━━━━━━━━━━━"
                 )
 
                 enviar_mensagem(mensagem)
