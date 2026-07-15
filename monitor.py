@@ -31,6 +31,7 @@ def enviar_mensagem(texto):
 
 except Exception as e:
     except Exception as e:
+
         print(f"Erro ao enviar mensagem: {e}")
         
 def gerar_scanner(acoes):
