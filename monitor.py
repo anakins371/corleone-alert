@@ -46,6 +46,11 @@ def main():
 
         preco = acao["price"]
 
+        day_high = acao["dayHigh"]
+        day_low = acao["dayLow"]
+        historical_high = acao["high"]
+        historical_low = acao["low"]
+        
         buy = CONFIG[ticker]["buy"]
         sell = CONFIG[ticker]["sell"]
         fair_price = CONFIG[ticker]["fair_price"]
