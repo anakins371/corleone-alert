@@ -3,18 +3,21 @@
     "buy_sent": false,
     "sell_sent": false,
     "great_sent": false,
-    "insane_sent": false
+    "insane_sent": false,
+    "legendary_sent": false
   },
   "MACN3": {
     "buy_sent": false,
     "sell_sent": false,
     "great_sent": false,
-    "insane_sent": false
+    "insane_sent": false,
+    "legendary_sent": false
   },
   "STDC3": {
     "buy_sent": false,
     "sell_sent": false,
     "great_sent": false,
-    "insane_sent": false
+    "insane_sent": false,
+    "legendary_sent": false
   }
 }
