@@ -70,7 +70,8 @@ def main():
     "🟢 OPORTUNIDADE DE COMPRA\n\n"
     f"📌 {ticker}\n\n"
     f"💵 Preço Atual: R$ {preco:.2f}\n"
-    f"🎯 Preço Alvo: R$ {buy:.2f}\n\n"
+    f"🎯 Preço Alvo: R$ {buy:.2f}\n\n"   
+    f"📉 Desconto: {desconto:.1f}%\n\n"
     "⟡ Ativo negociado abaixo da zona de entrada.\n\n"
     "━━━━━━━━━━━━━━━━━━"
                 )
