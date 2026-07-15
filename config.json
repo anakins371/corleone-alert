@@ -3,15 +3,18 @@
     "buy": 50,
     "sell": 80,
     "fair_price": 60
+    "legendary_sent": false
   },
   "MACN3": {
     "buy": 40,
     "sell": 70,
     "fair_price": 45
+    "legendary_sent": false
   },
   "STDC3": {
     "buy": 40,
     "sell": 60,
     "fair_price": 60
+    "legendary_sent": false
   }
 }
