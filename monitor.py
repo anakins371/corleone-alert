@@ -142,6 +142,39 @@ def main():
                 ESTADO[ticker]["insane_sent"] = False
                 alterou_estado = True
 
+
+        # ====================
+        # OPORTUNIDADE LENDÁRIA
+        # ====================
+
+if desconto >= 70:
+
+    if not ESTADO[ticker]["legendary_sent"]:
+
+        mensagem = (
+            "━━━━━━━━━━━━━━━━━━\n\n"
+            "💎 OPORTUNIDADE LENDÁRIA\n\n"
+            f"📌 {ticker}\n\n"
+            f"💵 Preço Atual: R$ {preco:.2f}\n"
+            f"🎯 Preço Justo: R$ {fair_price:.2f}\n"
+            f"📉 Desconto: {desconto:.1f}%\n\n"
+            "⟡ Condição extremamente rara.\n"
+            "⟡ Possível ponto de entrada excepcional.\n"
+            "⟡ Verifique o ativo imediatamente.\n\n"
+            "━━━━━━━━━━━━━━━━━━"
+        )
+
+        enviar_mensagem(mensagem)
+
+        ESTADO[ticker]["legendary_sent"] = True
+        alterou_estado = True
+
+else:
+
+    if ESTADO[ticker]["legendary_sent"]:
+        ESTADO[ticker]["legendary_sent"] = False
+        alterou_estado = True
+
         # ====================
         # VENDA
         # ====================
