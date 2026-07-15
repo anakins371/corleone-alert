@@ -28,60 +28,6 @@ def enviar_mensagem(texto):
             "chat_id": CHAT_ID,
             "text": texto
 
-            def gerar_scanner(acoes):
-
-    scanner = []
-
-    for acao in acoes:
-
-        ticker = acao["sym"]
-
-        if ticker not in CONFIG:
-            continue
-
-        preco = acao["price"]
-        fair_price = CONFIG[ticker]["fair_price"]
-
-        desconto = max(
-            0,
-            ((fair_price - preco) / fair_price) * 100
-        )
-
-        scanner.append({
-            "ticker": ticker,
-            "preco": preco,
-            "desconto": desconto
-        })
-
-    scanner.sort(
-        key=lambda x: x["desconto"],
-        reverse=True
-    )
-
-    top3 = scanner[:3]
-
-    mensagem = (
-        "\n"
-        "━━━━━━━━━━━━━━━━━━\n\n"
-        "🏆 SCANNER DE MERCADO\n\n"
-    )
-
-    medalhas = ["🥇", "🥈", "🥉"]
-
-    for i, ativo in enumerate(top3):
-
-        mensagem += (
-            f"{medalhas[i]} {ativo['ticker']}\n"
-            f"💵 R$ {ativo['preco']:.2f}\n"
-            f"📉 {ativo['desconto']:.1f}%\n\n"
-        )
-
-    mensagem += "━━━━━━━━━━━━━━━━━━"
-
-    return mensagem
-        }
-    )
-
 
 def main():
 
@@ -262,3 +208,56 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def gerar_scanner(acoes):
+
+    scanner = []
+
+    for acao in acoes:
+
+        ticker = acao["sym"]
+
+        if ticker not in CONFIG:
+            continue
+
+        preco = acao["price"]
+        fair_price = CONFIG[ticker]["fair_price"]
+
+        desconto = max(
+            0,
+            ((fair_price - preco) / fair_price) * 100
+        )
+
+        scanner.append({
+            "ticker": ticker,
+            "preco": preco,
+            "desconto": desconto
+        })
+
+    scanner.sort(
+        key=lambda x: x["desconto"],
+        reverse=True
+    )
+
+    top3 = scanner[:3]
+
+    mensagem = (
+        "\n"
+        "━━━━━━━━━━━━━━━━━━\n\n"
+        "🏆 SCANNER DE MERCADO\n\n"
+    )
+
+    medalhas = ["🥇", "🥈", "🥉"]
+
+    for i, ativo in enumerate(top3):
+
+        mensagem += (
+            f"{medalhas[i]} {ativo['ticker']}\n"
+            f"💵 R$ {ativo['preco']:.2f}\n"
+            f"📉 {ativo['desconto']:.1f}%\n\n"
+        )
+
+    mensagem += "━━━━━━━━━━━━━━━━━━"
+
+    return mensagem
