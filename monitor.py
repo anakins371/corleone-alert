@@ -23,16 +23,16 @@ def enviar_mensagem(texto):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
     try:
-        requests.post(
-            url,
-            json={
-                "chat_id": CHAT_ID,
-                "text": texto
-            },
-            timeout=15
-        )
+    resposta = requests.get(API_URL, timeout=15)
+    resposta.raise_for_status()
+    acoes = resposta.json()
+
+    print(gerar_scanner(acoes))
+
+except Exception as e:
     except Exception as e:
         print(f"Erro ao enviar mensagem: {e}")
+        
 def gerar_scanner(acoes):
 
     scanner = []
