@@ -87,13 +87,15 @@ def gerar_scanner(acoes):
 def main():
 
     try:
-        resposta = requests.get(API_URL, timeout=15)
-        resposta.raise_for_status()
-        acoes = resposta.json()
+    resposta = requests.get(API_URL, timeout=15)
+    resposta.raise_for_status()
+    acoes = resposta.json()
 
-    except Exception as e:
-        print(f"Erro ao acessar API: {e}")
-        return
+    print(gerar_scanner(acoes))
+
+except Exception as e:
+    print(f"Erro ao acessar API: {e}")
+    return
 
     print(f"Analisando {len(acoes)} ativos...")
 
