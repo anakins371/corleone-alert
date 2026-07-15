@@ -72,6 +72,8 @@ def main():
     f"💵 Preço Atual: R$ {preco:.2f}\n"
     f"🎯 Preço Alvo: R$ {buy:.2f}\n\n"   
     f"📉 Desconto: {desconto:.1f}%\n\n"
+    f"📈 Máxima do Dia: R$ {day_high:.2f}\n"
+    f"📉 Mínima do Dia: R$ {day_low:.2f}\n"
     "⟡ Ativo negociado abaixo da zona de entrada.\n\n"
     "━━━━━━━━━━━━━━━━━━"
                 )
@@ -102,6 +104,8 @@ def main():
     f"💵 Preço Atual: R$ {preco:.2f}\n"
     f"🎯 Preço Justo: R$ {fair_price:.2f}\n"
     f"📉 Desconto: {desconto:.1f}%\n\n"
+    f"📈 Máxima do Dia: R$ {day_high:.2f}\n"
+    f"📉 Mínima do Dia: R$ {day_low:.2f}\n"
     "⟡ Ativo sendo negociado muito abaixo do valor estimado.\n\n"
     "━━━━━━━━━━━━━━━━━━"
                 )
@@ -132,6 +136,8 @@ def main():
     f"💵 Preço Atual: R$ {preco:.2f}\n"
     f"🎯 Preço Justo: R$ {fair_price:.2f}\n"
     f"📉 Desconto: {desconto:.1f}%\n\n"
+    f"📈 Máxima do Dia: R$ {day_high:.2f}\n"
+    f"📉 Mínima do Dia: R$ {day_low:.2f}\n"
     "⟡ Possível barganha extrema detectada.\n"
     "⟡ Condição rara de mercado.\n\n"
     "━━━━━━━━━━━━━━━━━━"
