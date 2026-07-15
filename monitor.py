@@ -148,32 +148,32 @@ def main():
 
         if desconto >= 70:
 
-    if not ESTADO[ticker]["legendary_sent"]:
+            if not ESTADO[ticker]["legendary_sent"]:
 
-        mensagem = (
-            "━━━━━━━━━━━━━━━━━━\n\n"
-            "💎 OPORTUNIDADE LENDÁRIA\n\n"
-            f"📌 {ticker}\n\n"
-            f"💵 Preço Atual: R$ {preco:.2f}\n"
-            f"🎯 Preço Justo: R$ {fair_price:.2f}\n"
-            f"📉 Desconto: {desconto:.1f}%\n\n"
-            "⟡ Condição extremamente rara.\n"
-            "⟡ Possível ponto de entrada excepcional.\n"
-            "⟡ Verifique o ativo imediatamente.\n\n"
-            "━━━━━━━━━━━━━━━━━━"
-        )
+                mensagem = (
+    "━━━━━━━━━━━━━━━━━━\n\n"
+    "💎 OPORTUNIDADE LENDÁRIA\n\n"
+    f"📌 {ticker}\n\n"
+    f"💵 Preço Atual: R$ {preco:.2f}\n"
+    f"🎯 Preço Justo: R$ {fair_price:.2f}\n"
+    f"📉 Desconto: {desconto:.1f}%\n\n"
+    "⟡ Condição extremamente rara.\n"
+    "⟡ Possível ponto de entrada excepcional.\n"
+    "⟡ Verifique o ativo imediatamente.\n\n"
+    "━━━━━━━━━━━━━━━━━━"
+                )
 
-        enviar_mensagem(mensagem)
+                enviar_mensagem(mensagem)
 
-        ESTADO[ticker]["legendary_sent"] = True
-        alterou_estado = True
+                ESTADO[ticker]["legendary_sent"] = True
+                alterou_estado = True
 
-else:
+        else:
 
-    if ESTADO[ticker]["legendary_sent"]:
-        ESTADO[ticker]["legendary_sent"] = False
-        alterou_estado = True
-
+            if ESTADO[ticker]["legendary_sent"]:
+                ESTADO[ticker]["legendary_sent"] = False
+                alterou_estado = True
+                
         # ====================
         # VENDA
         # ====================
