@@ -142,12 +142,11 @@ def main():
                 ESTADO[ticker]["insane_sent"] = False
                 alterou_estado = True
 
-
         # ====================
         # OPORTUNIDADE LENDÁRIA
         # ====================
 
-if desconto >= 70:
+        if desconto >= 70:
 
     if not ESTADO[ticker]["legendary_sent"]:
 
