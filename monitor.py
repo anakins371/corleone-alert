@@ -32,9 +32,14 @@ def enviar_mensagem(texto):
 
 
 def main():
-    resposta = requests.get(API_URL)
+    try:
+    resposta = requests.get(API_URL, timeout=15)
+    resposta.raise_for_status()
     acoes = resposta.json()
 
+    except Exception as e:
+    print(f"Erro ao acessar API: {e}")
+    return
     alterou_estado = False
 
     for acao in acoes:
